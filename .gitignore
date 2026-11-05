@@ -1,0 +1,11 @@
+# Atalhos locais e arquivos temporarios, nao publicar
+ACESSOS/
+preview-*.png
+assets/*-test.png
+scripts/capturar-portfolio.py
+backend/pages-site/public/
+**/.wrangler/
+*.log
+*.tmp
+.env
+.env.*

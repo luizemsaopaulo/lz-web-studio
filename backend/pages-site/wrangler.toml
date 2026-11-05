@@ -1,0 +1,8 @@
+name = "lz-web-studio-admin"
+pages_build_output_dir = "./public"
+compatibility_date = "2026-11-05"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lz-web-studio-db"
+database_id = "6987e227-6187-4481-a08d-6e39bd29b773"

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#101114">
+<title>Central ADM — LZ Web Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css?v=1">
+</head>
+<body>
+<section id="auth" class="auth">
+  <div class="auth-card">
+    <div class="auth-brand"><span class="mark">L<span>Z</span></span><span>WEB <b>STUDIO</b><small>PAINEL ADMINISTRATIVO</small></span></div>
+    <div class="auth-ico">✦</div>
+    <p class="eyebrow">ÁREA RESTRITA</p><h1>Bem-vindo de volta.</h1>
+    <p>Gerencie sua presença digital em um só lugar. Entre com a senha de administrador.</p>
+    <form id="login-form">
+      <label for="password">Senha de acesso</label>
+      <div class="password-field"><input type="password" id="password" required autocomplete="current-password" placeholder="Digite sua senha"><button type="button" id="show-password" aria-label="Mostrar ou ocultar senha">◉</button></div>
+      <button id="login-button" type="submit" class="button primary full">Entrar no painel <span>↗</span></button>
+    </form>
+    <p role="alert" class="auth-error" id="login-error" hidden></p>
+    <a class="auth-back" href="https://luizemsaopaulo.github.io/lz-web-studio/" target="_blank" rel="noopener noreferrer">← Voltar ao site</a>
+  </div>
+</section>
+<div id="app" class="app" hidden>
+  <aside class="sidebar">
+    <div class="side-brand"><span class="mark">L<span>Z</span></span><span>WEB <b>STUDIO</b><small>CENTRAL DE GESTÃO</small></span></div>
+    <p class="side-label">MENU PRINCIPAL</p>
+    <nav id="navigation" aria-label="Seções do painel">
+      <button class="nav-item active" type="button" data-page="inicio"><span class="nav-ico">◈</span> Visão geral</button>
+      <button class="nav-item" type="button" data-page="marca"><span class="nav-ico">✦</span> Marca e textos</button>
+      <button class="nav-item" type="button" data-page="precos"><span class="nav-ico">＄</span> Valores e serviços</button>
+      <button class="nav-item" type="button" data-page="portfolio"><span class="nav-ico">▣</span> Portfólio</button>
+      <button class="nav-item" type="button" data-page="imagens"><span class="nav-ico">▧</span> Imagens</button>
+      <button class="nav-item" type="button" data-page="seguranca"><span class="nav-ico">⚿</span> Segurança</button>
+    </nav>
+    <div class="side-bottom">
+      <a class="site-link" href="https://luizemsaopaulo.github.io/lz-web-studio/" target="_blank" rel="noopener noreferrer">↗ Visualizar site publicado</a>
+      <button id="logout" type="button" class="logout">↪ Sair do painel</button>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <button class="hamburger" type="button" id="hamburger" aria-label="Abrir menu">☰</button>
+      <div><small>PAINEL DE CONTROLE / <span id="breadcrumb">Visão geral</span></small><strong>LZ Web Studio <span class="online-dot"></span></strong></div>
+      <div class="top-actions"><span id="save-status" role="status">Todas as alterações salvas</span><button type="button" id="save" class="button primary">Salvar alterações <span>↗</span></button></div>
+    </header>
+    <main class="content">
+      <section id="page-inicio" class="page">
+        <div class="page-head"><p class="eyebrow">PAINEL ADMINISTRATIVO</p><h1>Visão geral <span class="accent">✦</span></h1><p>Tudo o que você precisa para manter a LZ Web Studio atualizada, sem editar código.</p></div>
+        <div class="metric-grid">
+          <article><small>Projetos no portfólio</small><strong id="metric-projects">3</strong><span>Personalize, adicione e reorganize</span></article>
+          <article><small>Investimento inicial</small><strong id="metric-price">R$ 250,00</strong><span>Atualizado no simulador do site</span></article>
+          <article><small>Serviços cadastrados</small><strong id="metric-services">3</strong><span>Ofertas apresentadas na página</span></article>
+        </div>
+        <div class="overview-grid">
+          <article class="panel welcome"><span class="kicker">BEM-VINDO À SUA CENTRAL</span><h2>Sua página, sob seu controle.</h2><p>Altere os textos da marca, preços, portfólio e imagens; depois clique em <b>Salvar alterações</b>. O conteúdo público será atualizado automaticamente.</p><div class="overview-links"><button class="button outline" data-go="portfolio" type="button">Editar portfólio ↗</button><button class="button outline" data-go="precos" type="button">Atualizar preços ↗</button></div></article>
+          <article class="panel shortcuts"><h3>Acesso rápido</h3><a href="https://luizemsaopaulo.github.io/lz-web-studio/" target="_blank" rel="noopener noreferrer">↗ Abrir página de clientes</a><button type="button" id="copy-site-link">⧉ Copiar link para WhatsApp</button><button type="button" id="refresh-data">⟳ Recarregar informações</button><p>As alterações no site público não dependem de uma nova publicação do GitHub.</p></article>
+        </div>
+      </section>
+
+      <section id="page-marca" class="page" hidden>
+        <div class="page-head"><p class="eyebrow">IDENTIDADE E COMUNICAÇÃO</p><h1>Marca e <em>textos</em></h1><p>Personalize a apresentação e o contato principal da agência.</p></div>
+        <div class="panel form-panel"><h2>Informações da marca</h2>
+          <div class="field-row"><label>Nome da marca<input data-path="businessName" maxlength="80"></label><label>WhatsApp (país + DDD + número)<input data-path="whatsapp" maxlength="20" inputmode="numeric" placeholder="5511999999999"></label></div>
+          <label>Slogan<input data-path="slogan" maxlength="120"></label>
+          <h3 class="divider-head">Título da página inicial</h3>
+          <div class="field-row"><label>Início do título<input data-path="heroBefore" maxlength="130"></label><label>Parte destacada em laranja<input data-path="heroHighlight" maxlength="100"></label></div>
+          <label>Final do título<input data-path="heroAfter" maxlength="90"></label>
+          <label>Descrição principal<textarea data-path="heroDescription" rows="4" maxlength="500"></textarea></label>
+          <div class="help">Essas alterações são aplicadas no site público após salvar.</div>
+        </div>
+      </section>
+
+      <section id="page-precos" class="page" hidden>
+        <div class="page-head"><p class="eyebrow">ORÇAMENTOS E OFERTAS</p><h1>Valores e <em>serviços</em></h1><p>Configure os preços usados no simulador e os serviços apresentados.</p></div>
+        <div class="panel form-panel"><h2>Tabela de preços do site</h2>
+          <div class="fields-3">
+            <label>Valor inicial (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.base"></label>
+            <label>Produtos incluídos<input type="number" min="1" max="500" step="1" data-path="pricing.included"></label>
+            <label>Produto adicional (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.extra"></label>
+            <label>Tratamento de foto (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.retouch"></label>
+            <label>Imagem ilustrativa (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.illustration"></label>
+            <label>Entrada (%)<input type="number" min="1" max="100" step="1" data-path="pricing.deposit"></label>
+            <label>Manutenção mensal opcional (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.maintenance"></label>
+          </div>
+          <p class="help">Os valores alimentam o simulador e a mensagem de orçamento enviada para o WhatsApp.</p>
+        </div>
+        <div class="panel form-panel"><div class="section-top"><div><h2>Serviços anunciados</h2><p>Edite as descrições exibidas no site.</p></div><button id="add-service" type="button" class="button outline">+ Novo serviço</button></div><div id="services-editor" class="editor-stack"></div></div>
+      </section>
+
+      <section id="page-portfolio" class="page" hidden>
+        <div class="page-head"><p class="eyebrow">PROJETOS E CLIENTES</p><h1>Seu <em>portfólio</em></h1><p>Adicione trabalhos, edite descrições, troque imagens e configure o link de demonstração.</p></div>
+        <div class="panel form-panel"><div class="section-top"><div><h2>Projetos cadastrados</h2><p>Use imagens e links públicos autorizados pelo cliente.</p></div><button id="add-project" type="button" class="button primary">+ Adicionar projeto</button></div><div id="projects-editor" class="editor-stack"></div></div>
+      </section>
+
+      <section id="page-imagens" class="page" hidden>
+        <div class="page-head"><p class="eyebrow">IDENTIDADE VISUAL</p><h1>Imagens da <em>marca</em></h1><p>Escolha novas imagens para o site e para os links compartilhados no WhatsApp.</p></div>
+        <div class="image-grid">
+          <div class="panel form-panel"><h2>Logo principal</h2><img id="logo-preview" alt="Logo atual" class="image-preview" src="../assets/logo-3d.jpg"><p>Imagem principal no início do site. Recomendado: quadrada e de boa qualidade.</p><label class="button outline upload-control">Escolher nova logo<input type="file" id="logo-upload" accept="image/png,image/jpeg,image/webp" hidden></label><p id="logo-filename" class="help"></p></div>
+          <div class="panel form-panel"><h2>Prévia do WhatsApp</h2><img id="cover-preview" alt="Imagem para compartilhamento" class="image-preview wide" src="../assets/og-whatsapp-20261105.jpg"><p>Imagem que aparece quando alguém envia o link. Recomendado: horizontal, proporção 1200 × 630.</p><label class="button outline upload-control">Escolher imagem de compartilhamento<input type="file" id="cover-upload" accept="image/png,image/jpeg,image/webp" hidden></label><p id="cover-filename" class="help"></p></div>
+        </div>
+        <p class="help">Após selecionar as imagens, clique em <b>Salvar alterações</b>. A prévia do WhatsApp pode demorar a atualizar por causa do cache do aplicativo.</p>
+      </section>
+
+      <section id="page-seguranca" class="page" hidden>
+        <div class="page-head"><p class="eyebrow">PRIVACIDADE E ACESSO</p><h1>Segurança do <em>painel</em></h1><p>Seu acesso é protegido por senha e sessão temporária.</p></div>
+        <div class="panel form-panel" style="max-width:640px"><h2>Alterar senha de administrador</h2><p>Escolha uma senha forte com pelo menos 12 caracteres. A alteração encerra todas as sessões ativas.</p>
+          <form id="change-password">
+            <label>Senha atual<input id="old-password" type="password" required autocomplete="current-password"></label>
+            <label>Nova senha<input id="new-password" type="password" minlength="12" required autocomplete="new-password"></label>
+            <label>Repita a nova senha<input id="repeat-password" type="password" minlength="12" required autocomplete="new-password"></label>
+            <button class="button primary" type="submit">Atualizar minha senha ↗</button>
+          </form>
+          <p id="security-message" role="status"></p>
+          <p class="help">Sua senha não aparece no código e não é gravada no navegador. A sessão expira automaticamente.</p>
+        </div>
+      </section>
+
+    </main>
+    <footer class="main-footer">LZ WEB STUDIO <span>Central administrativa privada • Dados protegidos no Cloudflare</span></footer>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="admin.js?v=1" defer></script>
+</body>
+</html>
