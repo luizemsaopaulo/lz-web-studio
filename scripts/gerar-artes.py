@@ -104,7 +104,7 @@ d.text((570,268),"Criação de sites profissionais",font=font(29,False),fill="#e
 d.text((570,319),"Cardápios digitais e pedidos online",font=font(24,False),fill="#bdc5ce")
 d.text((570,368),"Portfólios e páginas personalizadas",font=font(24,False),fill="#bdc5ce")
 d.rounded_rectangle((567,463,1102,536),radius=18,fill="#ff7828")
-d.text((601,481),"Conheça nossos projetos  ↗",font=font(28),fill="#1d1010")
+d.text((601,481),"Conheça nossos projetos",font=font(28),fill="#1d1010")
 d.text((569,572),"LZ WEB STUDIO  •  SITES QUE VALORIZAM SUA MARCA",font=font(16),fill="#bfc3ca")
 base=base.convert("RGB")
 base.save(OUT/"og-whatsapp.jpg",quality=91,optimize=True,progressive=True,subsampling=0)
