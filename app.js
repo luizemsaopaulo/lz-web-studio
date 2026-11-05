@@ -1,6 +1,6 @@
 "use strict";
 (() => {
- const FALLBACK={whatsapp:"5511947406124",pricing:{base:250,included:20,extra:5,retouch:150,retouchLimit:150,illustration:25,deposit:50}};
+ const FALLBACK={whatsapp:"5511947406124",pricing:{base:250,included:20,extra:0,retouch:150,retouchLimit:150,illustration:25,deposit:50}};
  const config=()=>window.LZ_CMS_CONFIG||FALLBACK;
  const money=(v)=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(Number(v)||0);
  const $=id=>document.getElementById(id);
@@ -8,17 +8,15 @@
  if($("year"))$("year").textContent=String(new Date().getFullYear());
  function totals(){
    const p=config().pricing;
-   const products=Math.max(1,Math.min(500,Number(productInput?.value)||20));
+   const estimate=productInput?.value.trim()||"";
+   const products=estimate===""?null:Math.max(1,Math.min(10000,Math.floor(Number(estimate)||1)));
    const edits=photoEditInput?.checked?1:0,creates=Math.max(0,Number(photoCreateInput?.value)||0);
-   const included=Math.max(1,Number(p.included)||20),base=Math.max(0,Number(p.base)||0);
-   const additional=Math.max(0,products-included)*Math.max(0,Number(p.extra)||0);
+   const base=Math.max(0,Number(p.base)||0);
    const photos=edits?Math.max(0,Number(p.retouch)||0):0,illustrations=creates*Math.max(0,Number(p.illustration)||0);
-   return {products,edits,creates,base,additional,photos,illustrations,deposit:Math.max(1,Math.min(100,Number(p.deposit)||50)),total:base+additional+photos+illustrations,included};
+   return {products,edits,creates,base,photos,illustrations,deposit:Math.max(1,Math.min(100,Number(p.deposit)||50)),total:base+photos+illustrations};
  }
  function update(){
-   if(!productInput)return;
    const t=totals();
-   $("products-value").textContent=String(t.products);
    // Pacote fixo de edição: sem cobrança por fotografia individual.
    $("createphotos-value").textContent=String(t.creates);
    $("quote-total").textContent=money(t.total);
@@ -38,14 +36,13 @@
      "Olá, LZ Web Studio! Gostaria de solicitar um orçamento para um cardápio/site de pedidos.",
      name?"Nome: "+name:"",
      business?"Estabelecimento: "+business:"",
-     "Quantidade de produtos: "+t.products,
-     "Produtos extras: "+Math.max(t.products-t.included,0)+" ("+money(t.additional)+")",
+     t.products===null?"Quantidade de produtos: não informada":"Quantidade aproximada de produtos: "+t.products+" (sujeita à avaliação, sem acréscimo automático)",
      "Tratamento opcional de fotos (até "+(config().pricing.retouchLimit||150)+" fotografias): "+(t.edits?"Sim ("+money(t.photos)+")":"Não (fotos prontas fornecidas pelo cliente)"),
      "Imagens ilustrativas: "+t.creates+" ("+money(t.illustrations)+")",
-     "Valor total estimado: "+money(t.total),
+     "Valor inicial estimado: "+money(t.total),
      "Entrada estimada ("+t.deposit+"%): "+money(t.total*t.deposit/100),
      details?"Observações: "+details:"",
-     "Esta simulação está sujeita à análise e confirmação do projeto."
+     "Quantidade de produtos e complexidade serão avaliadas; qualquer acréscimo será informado antes da contratação."
    ].filter(Boolean).join("\n");
    const phone=String(config().whatsapp||FALLBACK.whatsapp).replace(/\D/g,"");
    const url="https://wa.me/"+phone+"?text="+encodeURIComponent(lines);

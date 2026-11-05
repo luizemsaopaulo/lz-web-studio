@@ -78,16 +78,14 @@ function applyPrices(c) {
  const p=c.pricing||{};
  appendText(".price-display strong",money(p.base));
  const notes=document.querySelectorAll("#precos .tick-list li");
- if(notes[1])notes[1].textContent="Até "+p.included+" produtos com fotos fornecidas";
- appendText(".range-note","Até "+p.included+" produtos incluídos; adicionais: "+money(p.extra)+" cada.");
+ if(notes[1])notes[1].textContent="Organização de produtos e fotos fornecidos pelo cliente";
+ appendText(".range-note","A quantidade informada ajuda a preparar a proposta e não aumenta o preço automaticamente.");
  const counters=document.querySelectorAll(".quote .counter-line label small");
  appendText("#photo-package-limit",p.retouchLimit||150);
  appendText("#photo-package-price","+"+money(p.retouch));
  appendText(".photo-option-basic strong",money(p.base));
  appendText(".photo-option-edit strong",money((Number(p.base)||0)+(Number(p.retouch)||0)));
  if(counters[0])counters[0].textContent=money(p.illustration)+" cada";
- const productRange=document.getElementById("products");
- if(productRange)productRange.max=Math.max(100,Number(p.included)*2);
  appendText("#perguntas details:nth-child(3) p",
    "Se você já possui fotos prontas, elas serão utilizadas no site sem custo de edição: o pacote inicial parte de "+money(p.base)+". Se as fotos precisarem de tratamento, há um pacote opcional de "+money(p.retouch)+" para até "+(p.retouchLimit||150)+" fotografias. Para produtos sem fotos, podemos criar imagens ilustrativas separadamente por "+money(p.illustration)+" cada; imagens ilustrativas devem ser identificadas quando não representarem o produto real.");
  appendText("#perguntas details:nth-child(4) p",

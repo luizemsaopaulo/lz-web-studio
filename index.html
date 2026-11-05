@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="LZ Web Studio">
@@ -127,18 +127,18 @@
     <section class="section pricing" id="precos" aria-labelledby="precos-heading">
       <div class="container">
         <div class="pricing-grid">
-          <div class="pricing-intro"><span class="kicker">04 / INVESTIMENTO</span><h2 id="precos-heading">Transparência desde o <em>primeiro orçamento.</em></h2><p>Para cardápios digitais com até 20 produtos e fotos prontas, nosso pacote inicial parte de:</p><div class="price-display"><small>A PARTIR DE</small><strong>R$ 250<span>,00</span></strong></div><div class="photo-options"><div class="photo-option-basic"><span>Site com suas fotos prontas</span><strong>R$ 250,00</strong></div><div class="photo-option-edit"><span>Site + tratamento de até 150 fotos</span><strong>R$ 400,00</strong></div></div><ul class="tick-list"><li>Layout personalizado e responsivo</li><li>Até 20 produtos com fotos fornecidas</li><li>Carrinho e pedido pelo WhatsApp</li><li>Até duas rodadas de ajustes em 7 dias</li><li>Correção de falhas de desenvolvimento por 30 dias</li></ul><p class="fineprint">Projetos institucionais, integrações avançadas, domínios e serviços externos são avaliados separadamente. Hospedagem gratuita quando tecnicamente adequada, sujeita às regras e limites do provedor.</p></div>
+          <div class="pricing-intro"><span class="kicker">04 / INVESTIMENTO</span><h2 id="precos-heading">Transparência desde o <em>primeiro orçamento.</em></h2><p>Para cardápios digitais com fotos prontas fornecidas pelo cliente, nosso pacote inicial parte de:</p><div class="price-display"><small>A PARTIR DE</small><strong>R$ 250<span>,00</span></strong></div><div class="photo-options"><div class="photo-option-basic"><span>Site com suas fotos prontas</span><strong>R$ 250,00</strong></div><div class="photo-option-edit"><span>Site + tratamento de até 150 fotos</span><strong>R$ 400,00</strong></div></div><ul class="tick-list"><li>Layout personalizado e responsivo</li><li>Organização de produtos e fotos fornecidos pelo cliente</li><li>Carrinho e pedido pelo WhatsApp</li><li>Até duas rodadas de ajustes em 7 dias</li><li>Correção de falhas de desenvolvimento por 30 dias</li></ul><p class="fineprint">A quantidade de produtos e a complexidade do projeto são avaliadas individualmente; qualquer acréscimo é informado antes da contratação. Projetos institucionais, integrações avançadas, domínios e serviços externos são avaliados separadamente. Hospedagem gratuita quando tecnicamente adequada, sujeita às regras e limites do provedor.</p></div>
           <form class="quote" id="orcamento" autocomplete="on">
             <div class="quote-top"><span class="kicker">SIMULADOR DE INVESTIMENTO</span><span class="quote-icon">↗</span><h3>Quanto custaria seu site?</h3><p>Simule um cardápio digital e envie o resultado pelo WhatsApp.</p></div>
             <label for="client-name">Seu nome <span>opcional</span></label><input id="client-name" type="text" maxlength="70" placeholder="Como podemos chamar você?">
             <label for="business-name">Nome do estabelecimento <span>opcional</span></label><input id="business-name" type="text" maxlength="100" placeholder="Ex.: Minha Lanchonete">
-            <div class="counter-line"><label for="products">Quantidade de produtos</label><output for="products" id="products-value">20</output></div><input id="products" type="range" min="1" max="100" value="20" step="1" aria-label="Quantidade de produtos"><p class="range-note">Até 20 produtos incluídos; adicionais: R$ 5 cada.</p>
+            <label for="products">Quantos produtos você tem aproximadamente? <span>opcional</span></label><input id="products" type="number" min="1" max="10000" step="1" inputmode="numeric" placeholder="Ex.: 35"><p class="range-note">A quantidade informada ajuda a preparar a proposta e não aumenta o preço automaticamente.</p>
             <label class="photo-package-choice" for="editphotos"><input id="editphotos" type="checkbox"><span><strong>Quero tratamento das fotos enviadas</strong><small>Opcional: até <b id="photo-package-limit">150</b> fotografias por pacote</small></span><b id="photo-package-price">+ R$ 150,00</b></label>
             <div class="counter-line"><label for="createphotos">Imagens ilustrativas <small>R$ 25 cada</small></label><div class="counter"><button type="button" data-counter="createphotos" data-step="-1" aria-label="Diminuir imagens ilustrativas">−</button><output id="createphotos-value" for="createphotos">0</output><button type="button" data-counter="createphotos" data-step="1" aria-label="Aumentar imagens ilustrativas">+</button></div></div><input id="createphotos" type="hidden" value="0">
             <label for="details">Conte um pouco do projeto <span>opcional</span></label><textarea id="details" rows="2" maxlength="700" placeholder="Ex.: tenho fotos prontas e quero receber pedidos pelo WhatsApp"></textarea>
             <div class="price-summary"><div><span>Valor estimado</span><strong id="quote-total">R$ 250,00</strong></div><div class="quote-detail"><span>Entrada estimada (50%)</span><b id="quote-entry">R$ 125,00</b></div></div>
             <button class="btn btn-primary quote-submit" type="submit"><span>Solicitar orçamento pelo WhatsApp</span><span>↗</span></button>
-            <p class="quote-disclaimer">Esta simulação é uma estimativa, sujeita à avaliação do projeto. O envio abre seu WhatsApp com a proposta preenchida; nenhuma mensagem é enviada automaticamente.</p>
+            <p class="quote-disclaimer">O valor é uma estimativa. Quantidade de produtos e complexidade são avaliadas antes de confirmar qualquer acréscimo. O envio abre seu WhatsApp com a proposta preenchida; nenhuma mensagem é enviada automaticamente.</p>
           </form>
         </div>
       </div>
@@ -160,7 +160,7 @@
   <footer class="footer"><div class="container"><div class="footer-main"><a class="brand" href="#topo" aria-label="Voltar ao início"><span class="brand-mark">L<span>Z</span><i class="brand-dot"></i></span><span class="brand-name">WEB <b>STUDIO</b><small>ESTÚDIO DIGITAL</small></span></a><p>Transformamos ideias em experiências digitais. <br>Sua presença digital começa aqui.</p><a href="https://wa.me/5511947406124" target="_blank" rel="noopener noreferrer">WhatsApp <span>↗</span></a></div><div class="footer-bottom"><span>© <span id="year">2026</span> LZ Web Studio. Todos os direitos reservados.</span><span>Feito com atenção aos detalhes.</span></div></div></footer>
 
   <a class="floating-whatsapp" href="https://wa.me/5511947406124?text=Ol%C3%A1%2C%20LZ%20Web%20Studio%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site." target="_blank" rel="noopener noreferrer" aria-label="Falar com LZ Web Studio pelo WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 .8A15.2 15.2 0 0 0 2.9 23.7L.8 31l7.5-2A15.2 15.2 0 1 0 16 .8Zm0 27.7c-2.3 0-4.5-.6-6.5-1.8l-.5-.3-4.4 1.2 1.2-4.3-.3-.5A12.4 12.4 0 1 1 16 28.5Zm6.8-9.3c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2s-1 1.2-1.2 1.4-.5.3-.9.1a10.3 10.3 0 0 1-3-1.9 11.3 11.3 0 0 1-2.1-2.6c-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2 0-.5 0-.7s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5s-1.3 1.3-1.3 3.1 1.4 3.6 1.6 1.1 3.7 3.9 5.8 4.7c.8.3 1.5.5 2 .6.8.3 1.6.2 2.2.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5Z"/></svg><span class="floating-label">Vamos conversar?</span></a>
-  <script src="cms.js?v=2" defer></script>
-  <script src="app.js?v=5" defer></script>
+  <script src="cms.js?v=3" defer></script>
+  <script src="app.js?v=6" defer></script>
 </body>
 </html>

@@ -78,15 +78,14 @@
         <div class="panel form-panel"><h2>Tabela de preços do site</h2>
           <div class="fields-3">
             <label>Valor inicial (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.base"></label>
-            <label>Produtos incluídos<input type="number" min="1" max="500" step="1" data-path="pricing.included"></label>
-            <label>Produto adicional (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.extra"></label>
+
             <label>Pacote de edição de fotos (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.retouch"></label>
             <label>Quantidade máxima de fotos do pacote<input type="number" min="1" max="1000" step="1" data-path="pricing.retouchLimit"></label>
             <label>Imagem ilustrativa (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.illustration"></label>
             <label>Entrada (%)<input type="number" min="1" max="100" step="1" data-path="pricing.deposit"></label>
             <label>Manutenção mensal opcional (R$)<input type="number" min="0" max="50000" step=".01" data-path="pricing.maintenance"></label>
           </div>
-          <p class="help">Os valores alimentam o simulador e a mensagem de orçamento enviada para o WhatsApp.</p>
+          <p class="help">A quantidade de produtos é informada pelo cliente como estimativa e não gera acréscimo automático. Você avalia o volume e combina eventuais ajustes na proposta.</p>
         </div>
         <div class="panel form-panel"><div class="section-top"><div><h2>Serviços anunciados</h2><p>Edite as descrições exibidas no site.</p></div><button id="add-service" type="button" class="button outline">+ Novo serviço</button></div><div id="services-editor" class="editor-stack"></div></div>
       </section>
