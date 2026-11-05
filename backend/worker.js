@@ -11,13 +11,14 @@ const defaultConfig = {
   heroAfter: "à altura.",
   heroDescription: "Sites profissionais, cardápios digitais e páginas de pedidos que valorizam sua marca e facilitam a vida dos seus clientes.",
   whatsapp: "5511947406124",
-  pricing: {base:250, included:20, extra:5, retouch:12, illustration:25, deposit:50, maintenance:50},
+  pricing: {base:250, included:20, extra:5, retouch:150, retouchLimit:150, illustration:25, deposit:50, maintenance:50},
   services: [
     {title:"Cardápios digitais", description:"Organize seus produtos e receba pedidos com carrinho, observações e envio direto ao WhatsApp.",tag:"Restaurantes e delivery"},
     {title:"Sites institucionais", description:"Uma vitrine profissional para apresentar sua empresa, serviços, diferenciais e canais de contato.",tag:"Empresas e profissionais"},
     {title:"Páginas personalizadas",description:"Portfólios, landing pages, catálogos e soluções feitas para as necessidades do seu projeto.",tag:"Sob medida"}
   ],
   portfolio: [
+    {id:"gato-preto",name:"Gato Preto Lanches",description:"Cardápio digital com carrinho de compras e pedidos pelo WhatsApp.",tag:"LANCHONETE • CARDÁPIO DIGITAL",image:"assets/gato-preto-preview.jpg",url:"https://gato-preto-lanches.pages.dev/",restricted:false},
     {id:"cantinho",name:"Cantinho do Petisco",description:"Apresentação digital e cardápio de restaurante.",tag:"RESTAURANTE • CARDÁPIO",image:"assets/cantinho-preview.jpg",url:"https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/",restricted:false},
     {id:"helena",name:"Tudo de Helena",description:"Aplicativo privado para organização de acervo digital.",tag:"ACERVO • ACESSO RESTRITO",image:"assets/helena-preview.jpg",url:"https://luizemsaopaulo.github.io/tudo-de-helena-versao2/",restricted:true},
     {id:"beleza",name:"Mix da Beleza",description:"Aplicativo web para controle e fechamento de caixa.",tag:"GESTÃO • APLICAÇÃO WEB",image:"assets/beleza-preview.jpg",url:"https://luizemsaopaulo.github.io/mix-da-beleza-pwa/",restricted:false}
@@ -92,7 +93,7 @@ function cleanConfig(raw){
    heroDescription:str(raw.heroDescription,500),whatsapp:str(raw.whatsapp,20).replace(/\D/g,""),
    pricing:{
      base:price(raw.pricing?.base),included:Math.round(price(raw.pricing?.included,1,500)),
-     extra:price(raw.pricing?.extra),retouch:price(raw.pricing?.retouch),
+     extra:price(raw.pricing?.extra),retouch:price(raw.pricing?.retouch),retouchLimit:Math.round(price(raw.pricing?.retouchLimit??150,1,1000)),
      illustration:price(raw.pricing?.illustration),deposit:price(raw.pricing?.deposit,1,100),
      maintenance:price(raw.pricing?.maintenance)
    },

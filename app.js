@@ -1,6 +1,6 @@
 "use strict";
 (() => {
- const FALLBACK={whatsapp:"5511947406124",pricing:{base:250,included:20,extra:5,retouch:12,illustration:25,deposit:50}};
+ const FALLBACK={whatsapp:"5511947406124",pricing:{base:250,included:20,extra:5,retouch:150,retouchLimit:150,illustration:25,deposit:50}};
  const config=()=>window.LZ_CMS_CONFIG||FALLBACK;
  const money=(v)=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(Number(v)||0);
  const $=id=>document.getElementById(id);
@@ -9,22 +9,23 @@
  function totals(){
    const p=config().pricing;
    const products=Math.max(1,Math.min(500,Number(productInput?.value)||20));
-   const edits=Math.max(0,Number(photoEditInput?.value)||0),creates=Math.max(0,Number(photoCreateInput?.value)||0);
+   const edits=photoEditInput?.checked?1:0,creates=Math.max(0,Number(photoCreateInput?.value)||0);
    const included=Math.max(1,Number(p.included)||20),base=Math.max(0,Number(p.base)||0);
    const additional=Math.max(0,products-included)*Math.max(0,Number(p.extra)||0);
-   const photos=edits*Math.max(0,Number(p.retouch)||0),illustrations=creates*Math.max(0,Number(p.illustration)||0);
+   const photos=edits?Math.max(0,Number(p.retouch)||0):0,illustrations=creates*Math.max(0,Number(p.illustration)||0);
    return {products,edits,creates,base,additional,photos,illustrations,deposit:Math.max(1,Math.min(100,Number(p.deposit)||50)),total:base+additional+photos+illustrations,included};
  }
  function update(){
    if(!productInput)return;
    const t=totals();
    $("products-value").textContent=String(t.products);
-   $("editphotos-value").textContent=String(t.edits);
+   // Pacote fixo de edição: sem cobrança por fotografia individual.
    $("createphotos-value").textContent=String(t.creates);
    $("quote-total").textContent=money(t.total);
    $("quote-entry").textContent=money(t.total*t.deposit/100);
  }
  productInput?.addEventListener("input",update);
+ photoEditInput?.addEventListener("change",update);
  document.querySelectorAll("[data-counter]").forEach(btn=>btn.addEventListener("click",()=>{
    const field=$(btn.dataset.counter),step=Number(btn.dataset.step);
    field.value=String(Math.max(0,Math.min(100,Number(field.value)+step)));update();
@@ -39,7 +40,7 @@
      business?"Estabelecimento: "+business:"",
      "Quantidade de produtos: "+t.products,
      "Produtos extras: "+Math.max(t.products-t.included,0)+" ("+money(t.additional)+")",
-     "Tratamento de fotos: "+t.edits+" ("+money(t.photos)+")",
+     "Tratamento opcional de fotos (até "+(config().pricing.retouchLimit||150)+" fotografias): "+(t.edits?"Sim ("+money(t.photos)+")":"Não (fotos prontas fornecidas pelo cliente)"),
      "Imagens ilustrativas: "+t.creates+" ("+money(t.illustrations)+")",
      "Valor total estimado: "+money(t.total),
      "Entrada estimada ("+t.deposit+"%): "+money(t.total*t.deposit/100),
