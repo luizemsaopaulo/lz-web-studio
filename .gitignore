@@ -2,7 +2,6 @@
 ACESSOS/
 preview-*.png
 assets/*-test.png
-scripts/capturar-portfolio.py
 backend/pages-site/public/
 **/.wrangler/
 *.log
